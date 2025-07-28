@@ -29,7 +29,7 @@ class CategoryPartitionTest {
 
 	static Stream<Arguments> shippingVehicle() {
 		return Stream.of(
-			// valid input
+
 			Arguments.of(0, 0, 0, List.of(0, 0, 0)),
 
 			Arguments.of(0, 0, 65, List.of(65, 0, 0)), 
@@ -41,16 +41,18 @@ class CategoryPartitionTest {
 
 			Arguments.of(123, 63, 30, List.of(30, 63, 123)),
 
-			// invalid input
+
 			Arguments.of(-2, 0, 0, List.of(-1)), 
 			Arguments.of(0, -3, 0, List.of(-1)),
 			Arguments.of(0, 0, -4, List.of(-1)),
 
 			Arguments.of(-1, -5, 0, List.of(-1)),
 			Arguments.of(0, -7, -2, List.of(-1)), 
+			Arguments.of(-1, 0, -1, List.of(-1)),
+			
 			Arguments.of(-8, -6, -9, List.of(-1)),
 
-			// over weight
+
 			Arguments.of(0, 0, 102, List.of(-1)), 
 			Arguments.of(0, 211, 0, List.of(-1)),
 			Arguments.of(521, 0, 0, List.of(-1)),
